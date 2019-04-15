@@ -286,6 +286,7 @@
     <parameter key="twig.exception_listener.controller">twig.controller.exception::showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
+      <parameter>bootstrap_4_horizontal_layout.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">C:\xampp\htdocs\zinnig/templates</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
@@ -4001,8 +4002,8 @@
       <argument type="collection"/>
       <call method="setOptions">
         <argument type="collection">
+          <argument key="default_target_path">/user</argument>
           <argument key="always_use_default_target_path">false</argument>
-          <argument key="default_target_path">/</argument>
           <argument key="login_path">/login</argument>
           <argument key="target_path_parameter">_target_path</argument>
           <argument key="use_referer">false</argument>
@@ -4218,10 +4219,11 @@
         <argument key="default_path">C:\xampp\htdocs\zinnig/templates</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
-        <argument key="exception_controller">twig.controller.exception::showAction</argument>
         <argument key="form_themes" type="collection">
           <argument>form_div_layout.html.twig</argument>
+          <argument>bootstrap_4_horizontal_layout.html.twig</argument>
         </argument>
+        <argument key="exception_controller">twig.controller.exception::showAction</argument>
         <argument key="autoescape">name</argument>
         <argument key="cache">C:\xampp\htdocs\zinnig\var\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
@@ -4395,6 +4397,10 @@
       <call method="addPath">
         <argument>C:\xampp\htdocs\zinnig\vendor\symfony\debug-bundle/Resources/views</argument>
         <argument>!Debug</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\zinnig/templates/bundles/FOSUserBundle</argument>
+        <argument>FOSUser</argument>
       </call>
       <call method="addPath">
         <argument>C:\xampp\htdocs\zinnig\vendor\friendsofsymfony\user-bundle/Resources/views</argument>
@@ -4575,6 +4581,10 @@
       <call method="addPath">
         <argument>C:\xampp\htdocs\zinnig\vendor\symfony\debug-bundle/Resources/views</argument>
         <argument>!Debug</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\zinnig/templates/bundles/FOSUserBundle</argument>
+        <argument>FOSUser</argument>
       </call>
       <call method="addPath">
         <argument>C:\xampp\htdocs\zinnig\vendor\friendsofsymfony\user-bundle/Resources/views</argument>

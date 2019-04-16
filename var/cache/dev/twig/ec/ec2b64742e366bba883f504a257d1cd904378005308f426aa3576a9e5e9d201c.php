@@ -68,20 +68,20 @@ class __TwigTemplate_0a730291a76a6fb2473e8c6370191722bcdaa1c6140cc45d8539c138d11
             ";
         // line 69
         $this->displayBlock('nav', $context, $blocks);
-        // line 125
+        // line 143
         echo "            </br>
             </br>
         ";
-        // line 127
+        // line 145
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
             echo " 
         ";
-            // line 128
+            // line 146
             $this->displayBlock('body', $context, $blocks);
-            // line 129
+            // line 147
             echo "        ";
         } else {
-            // line 130
+            // line 148
             echo "        <h1 class=\"d-flex justify-content-center site_title\">Please login to view tables</h1>
 
         <br>
@@ -96,10 +96,10 @@ class __TwigTemplate_0a730291a76a6fb2473e8c6370191722bcdaa1c6140cc45d8539c138d11
         </div>
         ";
         }
-        // line 143
+        // line 161
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 144
+        // line 162
         echo "    </body>
 </html>
 ";
@@ -253,7 +253,7 @@ class __TwigTemplate_0a730291a76a6fb2473e8c6370191722bcdaa1c6140cc45d8539c138d11
             <header>
               <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
                   <div class=\"container\">
-                    <a class=\"navbar-brand\" href=\"/user\"><i class=\"fas fa-book-reader\"></i> Logboek</a>
+                    <a class=\"navbar-brand\" href=\"/user\"><i class=\"fas fa-book-reader\"></i> FOSUser</a>
                     <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExample07\" aria-controls=\"navbarsExample07\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                       <span class=\"navbar-toggler-icon\"></span>
                     </button>
@@ -263,13 +263,19 @@ class __TwigTemplate_0a730291a76a6fb2473e8c6370191722bcdaa1c6140cc45d8539c138d11
                         <li class=\"nav-item\" id=\"nav-index\">
                           <a class=\"nav-link\" href=\"/user\">Home <span class=\"sr-only\">(current)</span></a>
                         </li>
-                        <!-- <li class=\"nav-item\" id=\"nav-user\">
-                          <a class=\"nav-link\" href=\"/user\">User</a>
-                        </li> -->
+                        <li class=\"nav-item\" id=\"nav-loc\">
+                          <a class=\"nav-link\" href=\"/location\">Location</a>
+                        </li>
+                        <li class=\"nav-item\" id=\"nav-event\">
+                          <a class=\"nav-link\" href=\"/event\">Event</a>
+                        </li>
+                        <li class=\"nav-item\" id=\"nav-res\">
+                          <a class=\"nav-link\" href=\"/reservation\">Reservation</a>
+                        </li>
                       </ul>
                       <ul class=\"nav navbar-nav navbar-right\">
                           ";
-        // line 88
+        // line 94
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
             echo " 
                             <li class=\"nav-item active\">
@@ -279,7 +285,7 @@ class __TwigTemplate_0a730291a76a6fb2473e8c6370191722bcdaa1c6140cc45d8539c138d11
                             </li>
                           ";
         } else {
-            // line 95
+            // line 101
             echo "                            <li class=\"nav-item active\">
                               <a class=\"nav-link\" href=\"/login\">
                                 <button class=\"btn btn-primary navbar-btn\">Login</button>
@@ -292,7 +298,7 @@ class __TwigTemplate_0a730291a76a6fb2473e8c6370191722bcdaa1c6140cc45d8539c138d11
                             </li>
                           ";
         }
-        // line 106
+        // line 112
         echo "                  
                         </ul>
                     </div>
@@ -310,6 +316,18 @@ class __TwigTemplate_0a730291a76a6fb2473e8c6370191722bcdaa1c6140cc45d8539c138d11
                   navItem = document.getElementById('nav-index');
                   navItem.classList += ' active'
                 }
+                else if(permalink.match('/location/')) {
+                  navItem = document.getElementById('nav-loc');
+                  navItem.classList += ' active'
+                }
+                else if(permalink.match('/event/')) {
+                  navItem = document.getElementById('nav-event');
+                  navItem.classList += ' active'
+                }
+                else if(permalink.match('/reservation/')) {
+                  navItem = document.getElementById('nav-res');
+                  navItem.classList += ' active'
+                }
             </script>
           ";
         
@@ -320,7 +338,7 @@ class __TwigTemplate_0a730291a76a6fb2473e8c6370191722bcdaa1c6140cc45d8539c138d11
 
     }
 
-    // line 128
+    // line 146
     public function block_body($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -337,7 +355,7 @@ class __TwigTemplate_0a730291a76a6fb2473e8c6370191722bcdaa1c6140cc45d8539c138d11
 
     }
 
-    // line 143
+    // line 161
     public function block_javascripts($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -366,7 +384,7 @@ class __TwigTemplate_0a730291a76a6fb2473e8c6370191722bcdaa1c6140cc45d8539c138d11
 
     public function getDebugInfo()
     {
-        return array (  341 => 143,  324 => 128,  296 => 106,  283 => 95,  273 => 88,  244 => 69,  231 => 63,  222 => 62,  159 => 8,  150 => 7,  133 => 6,  115 => 5,  103 => 144,  100 => 143,  85 => 130,  82 => 129,  80 => 128,  76 => 127,  72 => 125,  70 => 69,  66 => 67,  63 => 62,  60 => 7,  58 => 6,  54 => 5,  48 => 1,);
+        return array (  359 => 161,  342 => 146,  302 => 112,  289 => 101,  279 => 94,  244 => 69,  231 => 63,  222 => 62,  159 => 8,  150 => 7,  133 => 6,  115 => 5,  103 => 162,  100 => 161,  85 => 148,  82 => 147,  80 => 146,  76 => 145,  72 => 143,  70 => 69,  66 => 67,  63 => 62,  60 => 7,  58 => 6,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -443,7 +461,7 @@ class __TwigTemplate_0a730291a76a6fb2473e8c6370191722bcdaa1c6140cc45d8539c138d11
             <header>
               <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
                   <div class=\"container\">
-                    <a class=\"navbar-brand\" href=\"/user\"><i class=\"fas fa-book-reader\"></i> Logboek</a>
+                    <a class=\"navbar-brand\" href=\"/user\"><i class=\"fas fa-book-reader\"></i> FOSUser</a>
                     <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExample07\" aria-controls=\"navbarsExample07\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                       <span class=\"navbar-toggler-icon\"></span>
                     </button>
@@ -453,9 +471,15 @@ class __TwigTemplate_0a730291a76a6fb2473e8c6370191722bcdaa1c6140cc45d8539c138d11
                         <li class=\"nav-item\" id=\"nav-index\">
                           <a class=\"nav-link\" href=\"/user\">Home <span class=\"sr-only\">(current)</span></a>
                         </li>
-                        <!-- <li class=\"nav-item\" id=\"nav-user\">
-                          <a class=\"nav-link\" href=\"/user\">User</a>
-                        </li> -->
+                        <li class=\"nav-item\" id=\"nav-loc\">
+                          <a class=\"nav-link\" href=\"/location\">Location</a>
+                        </li>
+                        <li class=\"nav-item\" id=\"nav-event\">
+                          <a class=\"nav-link\" href=\"/event\">Event</a>
+                        </li>
+                        <li class=\"nav-item\" id=\"nav-res\">
+                          <a class=\"nav-link\" href=\"/reservation\">Reservation</a>
+                        </li>
                       </ul>
                       <ul class=\"nav navbar-nav navbar-right\">
                           {% if is_granted('ROLE_USER') %} 
@@ -491,6 +515,18 @@ class __TwigTemplate_0a730291a76a6fb2473e8c6370191722bcdaa1c6140cc45d8539c138d11
                 }
                 else if(permalink.match('/user/')) {
                   navItem = document.getElementById('nav-index');
+                  navItem.classList += ' active'
+                }
+                else if(permalink.match('/location/')) {
+                  navItem = document.getElementById('nav-loc');
+                  navItem.classList += ' active'
+                }
+                else if(permalink.match('/event/')) {
+                  navItem = document.getElementById('nav-event');
+                  navItem.classList += ' active'
+                }
+                else if(permalink.match('/reservation/')) {
+                  navItem = document.getElementById('nav-res');
                   navItem.classList += ' active'
                 }
             </script>

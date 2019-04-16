@@ -11,6 +11,10 @@ include_once $this->targetDirs[3].'\\vendor\\symfony\\http-kernel\\Controller\\A
 include_once $this->targetDirs[3].'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\ServiceValueResolver.php';
 
 return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+    'App\\Controller\\EventController::delete' => ['privates', '.service_locator.Tg9qkSo', 'get_ServiceLocator_Tg9qkSoService.php', true],
+    'App\\Controller\\EventController::edit' => ['privates', '.service_locator.Tg9qkSo', 'get_ServiceLocator_Tg9qkSoService.php', true],
+    'App\\Controller\\EventController::index' => ['privates', '.service_locator.4oecvtL', 'get_ServiceLocator_4oecvtLService.php', true],
+    'App\\Controller\\EventController::show' => ['privates', '.service_locator.Tg9qkSo', 'get_ServiceLocator_Tg9qkSoService.php', true],
     'App\\Controller\\LocationController::delete' => ['privates', '.service_locator.Yg6KnU7', 'get_ServiceLocator_Yg6KnU7Service.php', true],
     'App\\Controller\\LocationController::edit' => ['privates', '.service_locator.Yg6KnU7', 'get_ServiceLocator_Yg6KnU7Service.php', true],
     'App\\Controller\\LocationController::index' => ['privates', '.service_locator.jmnm8do', 'get_ServiceLocator_Jmnm8doService.php', true],
@@ -22,6 +26,10 @@ return $this->privates['debug.argument_resolver.service'] = new \Symfony\Compone
     'App\\Controller\\UserController::delete' => ['privates', '.service_locator.wypGnUQ', 'get_ServiceLocator_WypGnUQService.php', true],
     'App\\Controller\\UserController::edit' => ['privates', '.service_locator.wypGnUQ', 'get_ServiceLocator_WypGnUQService.php', true],
     'App\\Controller\\UserController::show' => ['privates', '.service_locator.wypGnUQ', 'get_ServiceLocator_WypGnUQService.php', true],
+    'App\\Controller\\EventController:delete' => ['privates', '.service_locator.Tg9qkSo', 'get_ServiceLocator_Tg9qkSoService.php', true],
+    'App\\Controller\\EventController:edit' => ['privates', '.service_locator.Tg9qkSo', 'get_ServiceLocator_Tg9qkSoService.php', true],
+    'App\\Controller\\EventController:index' => ['privates', '.service_locator.4oecvtL', 'get_ServiceLocator_4oecvtLService.php', true],
+    'App\\Controller\\EventController:show' => ['privates', '.service_locator.Tg9qkSo', 'get_ServiceLocator_Tg9qkSoService.php', true],
     'App\\Controller\\LocationController:delete' => ['privates', '.service_locator.Yg6KnU7', 'get_ServiceLocator_Yg6KnU7Service.php', true],
     'App\\Controller\\LocationController:edit' => ['privates', '.service_locator.Yg6KnU7', 'get_ServiceLocator_Yg6KnU7Service.php', true],
     'App\\Controller\\LocationController:index' => ['privates', '.service_locator.jmnm8do', 'get_ServiceLocator_Jmnm8doService.php', true],

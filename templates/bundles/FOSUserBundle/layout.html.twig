@@ -68,7 +68,7 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
-                  <a class="navbar-brand" href="/user"><i class="fas fa-book-reader" style=""></i> Logboek</a>
+                  <a class="navbar-brand" href="/user"><i class="fas fa-book-reader" style=""></i> FOSUser</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -78,9 +78,15 @@
                       <li class="nav-item" id="nav-index">
                         <a class="nav-link" href="/user">Home <span class="sr-only">(current)</span></a>
                       </li>
-                      <!-- <li class="nav-item" id="nav-user">
-                        <a class="nav-link" href="/user">User</a>
-                      </li> -->
+                      <li class="nav-item" id="nav-loc">
+                        <a class="nav-link" href="/location">Location</a>
+                      </li>
+                      <li class="nav-item" id="nav-event">
+                        <a class="nav-link" href="/event">Event</a>
+                      </li>
+                      <li class="nav-item" id="nav-res">
+                        <a class="nav-link" href="/reservation">Reservation</a>
+                      </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         {% if is_granted('ROLE_USER') %} 
@@ -116,6 +122,18 @@
               }
               else if(permalink.match('/user/')) {
                 navItem = document.getElementById('nav-index');
+                navItem.classList += ' active'
+              }
+              else if(permalink.match('/location/')) {
+                navItem = document.getElementById('nav-loc');
+                navItem.classList += ' active'
+              }
+              else if(permalink.match('/event/')) {
+                navItem = document.getElementById('nav-event');
+                navItem.classList += ' active'
+              }
+              else if(permalink.match('/reservation/')) {
+                navItem = document.getElementById('nav-res');
                 navItem.classList += ' active'
               }
           </script>

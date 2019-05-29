@@ -81,17 +81,20 @@ class __TwigTemplate_3ca5e010e2d76627b04c97bd472fd9a1c3234915af2f3ba439cd7b7b665
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Create new Location</h1>
+        echo "    <h1 class=\"d-flex justify-content-center site_title\">Create new Location</h1>
+    <br><br>
 
     ";
-        // line 8
+        // line 9
         echo twig_include($this->env, $context, "location/_form.html.twig");
         echo "
 
     <a href=\"";
-        // line 10
+        // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("location_index");
-        echo "\">back to list</a>
+        echo "\" class=\"d-flex justify-content-center\">
+        <strong class=\"btn btn-primary\"> back to list</strong>
+    </a>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -113,7 +116,7 @@ class __TwigTemplate_3ca5e010e2d76627b04c97bd472fd9a1c3234915af2f3ba439cd7b7b665
 
     public function getDebugInfo()
     {
-        return array (  93 => 10,  88 => 8,  84 => 6,  75 => 5,  57 => 3,  27 => 1,);
+        return array (  94 => 11,  89 => 9,  84 => 6,  75 => 5,  57 => 3,  27 => 1,);
     }
 
     public function getSourceContext()
@@ -123,11 +126,14 @@ class __TwigTemplate_3ca5e010e2d76627b04c97bd472fd9a1c3234915af2f3ba439cd7b7b665
 {% block title %}New Location{% endblock %}
 
 {% block body %}
-    <h1>Create new Location</h1>
+    <h1 class=\"d-flex justify-content-center site_title\">Create new Location</h1>
+    <br><br>
 
     {{ include('location/_form.html.twig') }}
 
-    <a href=\"{{ path('location_index') }}\">back to list</a>
+    <a href=\"{{ path('location_index') }}\" class=\"d-flex justify-content-center\">
+        <strong class=\"btn btn-primary\"> back to list</strong>
+    </a>
 {% endblock %}
 ", "location/new.html.twig", "C:\\xampp\\htdocs\\zinnig\\templates\\location\\new.html.twig");
     }

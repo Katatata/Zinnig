@@ -81,16 +81,16 @@ class __TwigTemplate_10b3e9b78f778c52548117f45275244d443a716b5274ffa955380bc5be5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Location index</h1>
+        echo "    <h1 class=\"d-flex justify-content-center site_title\">Location index</h1>
 
-    <table class=\"table\">
-        <thead>
+    <table class=\"table container table-striped table-bordered table-hover animated fadeIn\" style=\"max-width:90%\">
+        <thead class=\"thead-light\">
             <tr>
-                <th>Id</th>
-                <th>Breedtegraad</th>
-                <th>Lengtegraad</th>
-                <th>Image</th>
-                <th>actions</th>
+                <th scope=\"col\">Id</th>
+                <th scope=\"col\">Breedtegraad</th>
+                <th scope=\"col\">Lengtegraad</th>
+                <th scope=\"col\">Image</th>
+                <th scope=\"col\">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -122,11 +122,11 @@ class __TwigTemplate_10b3e9b78f778c52548117f45275244d443a716b5274ffa955380bc5be5
                     <a href=\"";
             // line 26
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("location_show", ["id" => twig_get_attribute($this->env, $this->source, $context["location"], "id", [])]), "html", null, true);
-            echo "\">show</a>
+            echo "\" class=\"btn btn-success\">show</a>
                     <a href=\"";
             // line 27
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("location_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["location"], "id", [])]), "html", null, true);
-            echo "\">edit</a>
+            echo "\" class=\"btn btn-warning\">edit</a>
                 </td>
             </tr>
         ";
@@ -149,7 +149,9 @@ class __TwigTemplate_10b3e9b78f778c52548117f45275244d443a716b5274ffa955380bc5be5
     <a href=\"";
         // line 38
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("location_new");
-        echo "\">Create new</a>
+        echo "\" class=\"d-flex justify-content-center\">
+        <strong class=\"btn btn-primary animated pulse slow\">Create new</strong>
+    </a>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -181,16 +183,16 @@ class __TwigTemplate_10b3e9b78f778c52548117f45275244d443a716b5274ffa955380bc5be5
 {% block title %}Location index{% endblock %}
 
 {% block body %}
-    <h1>Location index</h1>
+    <h1 class=\"d-flex justify-content-center site_title\">Location index</h1>
 
-    <table class=\"table\">
-        <thead>
+    <table class=\"table container table-striped table-bordered table-hover animated fadeIn\" style=\"max-width:90%\">
+        <thead class=\"thead-light\">
             <tr>
-                <th>Id</th>
-                <th>Breedtegraad</th>
-                <th>Lengtegraad</th>
-                <th>Image</th>
-                <th>actions</th>
+                <th scope=\"col\">Id</th>
+                <th scope=\"col\">Breedtegraad</th>
+                <th scope=\"col\">Lengtegraad</th>
+                <th scope=\"col\">Image</th>
+                <th scope=\"col\">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -201,8 +203,8 @@ class __TwigTemplate_10b3e9b78f778c52548117f45275244d443a716b5274ffa955380bc5be5
                 <td>{{ location.lengtegraad }}</td>
                 <td>{{ location.image }}</td>
                 <td>
-                    <a href=\"{{ path('location_show', {'id': location.id}) }}\">show</a>
-                    <a href=\"{{ path('location_edit', {'id': location.id}) }}\">edit</a>
+                    <a href=\"{{ path('location_show', {'id': location.id}) }}\" class=\"btn btn-success\">show</a>
+                    <a href=\"{{ path('location_edit', {'id': location.id}) }}\" class=\"btn btn-warning\">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -213,7 +215,9 @@ class __TwigTemplate_10b3e9b78f778c52548117f45275244d443a716b5274ffa955380bc5be5
         </tbody>
     </table>
 
-    <a href=\"{{ path('location_new') }}\">Create new</a>
+    <a href=\"{{ path('location_new') }}\" class=\"d-flex justify-content-center\">
+        <strong class=\"btn btn-primary animated pulse slow\">Create new</strong>
+    </a>
 {% endblock %}
 ", "location/index.html.twig", "C:\\xampp\\htdocs\\zinnig\\templates\\location\\index.html.twig");
     }

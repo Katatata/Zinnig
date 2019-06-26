@@ -14,6 +14,8 @@ final class Versions
 {
     public const ROOT_PACKAGE_NAME = '__root__';
     public const VERSIONS          = array (
+  'bacon/bacon-qr-code' => '2.0.0@eaac909da3ccc32b748a65b127acd8918f58d9b0',
+  'dasprid/enum' => '1.0.0@631ef6e638e9494b0310837fa531bedd908fc22b',
   'doctrine/annotations' => 'v1.6.1@53120e0eb10355388d6ccbe462f1fea34ddadb24',
   'doctrine/cache' => 'v1.8.0@d768d58baee9a4862ca783840eca1b9add7a7f57',
   'doctrine/collections' => 'v1.6.1@d2ae4ef05e25197343b6a39bae1d3c427a2f6956',
@@ -31,10 +33,15 @@ final class Versions
   'doctrine/persistence' => 'v1.1.0@c0f1c17602afc18b4cbd8e1c8125f264c9cf7d38',
   'doctrine/reflection' => 'v1.0.0@02538d3f95e88eb397a5f86274deb2c6175c2ab6',
   'egulias/email-validator' => '2.1.7@709f21f92707308cdf8f9bcfa1af4cb26586521e',
+  'endroid/installer' => '1.1.5@d4ae2bbd7977148dcb514ad625ece1a36f751a8b',
+  'endroid/qr-code' => '3.6.1@15641eec67291c6404b612694f65345c84a79919',
+  'endroid/qr-code-bundle' => '3.3.3@4230d9524b85199abb7594ad8a6c5b323a90cfa6',
   'fig/link-util' => '1.0.0@1a07821801a148be4add11ab0603e4af55a72fac',
   'friendsofsymfony/user-bundle' => 'v2.1.2@1049935edd24ec305cc6cfde1875372fa9600446',
   'jdorn/sql-formatter' => 'v1.2.17@64990d96e0959dff8e059dfcdc1af130728d92bc',
+  'khanamiryan/qrcode-detector-decoder' => '1.0.2@a75482d3bc804e3f6702332bfda6cccbb0dfaa76',
   'monolog/monolog' => '1.24.0@bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266',
+  'myclabs/php-enum' => '1.7.1@f46847626b8739de22e4ebc6b56010f317d4448d',
   'ocramius/package-versions' => '1.4.0@a4d4b60d0e60da2487bd21a2c6ac089f85570dbb',
   'ocramius/proxy-manager' => '2.1.1@e18ac876b2e4819c76349de8f78ccc8ef1554cd7',
   'phpdocumentor/reflection-common' => '1.0.1@21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6',

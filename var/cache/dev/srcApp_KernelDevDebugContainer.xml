@@ -23,6 +23,7 @@
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="WebServerBundle">Symfony\Bundle\WebServerBundle\WebServerBundle</parameter>
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
+      <parameter key="EndroidQrCodeBundle">Endroid\QrCodeBundle\EndroidQrCodeBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -80,6 +81,10 @@
       <parameter key="FOSUserBundle" type="collection">
         <parameter key="path">C:\xampp\htdocs\zinnig\vendor\friendsofsymfony\user-bundle</parameter>
         <parameter key="namespace">FOS\UserBundle</parameter>
+      </parameter>
+      <parameter key="EndroidQrCodeBundle" type="collection">
+        <parameter key="path">C:\xampp\htdocs\zinnig\vendor\endroid\qr-code-bundle\src</parameter>
+        <parameter key="namespace">Endroid\QrCodeBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -2308,14 +2313,6 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
-        <argument>console.command</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -4346,6 +4343,9 @@
       <call method="addExtension">
         <argument type="service" id="twig.extension.webprofiler"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="Endroid\QrCodeBundle\Twig\QrCodeExtension"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -5238,6 +5238,85 @@
         <argument type="service" id="service_container"/>
       </call>
     </service>
+    <service id="Endroid\QrCode\Writer\BinaryWriter" class="Endroid\QrCode\Writer\BinaryWriter" public="true" autowire="true" autoconfigure="true">
+      <tag name="endroid.qr_code.writer"/>
+    </service>
+    <service id="Endroid\QrCode\Writer\DebugWriter" class="Endroid\QrCode\Writer\DebugWriter" public="true" autowire="true" autoconfigure="true">
+      <tag name="endroid.qr_code.writer"/>
+    </service>
+    <service id="Endroid\QrCode\Writer\EpsWriter" class="Endroid\QrCode\Writer\EpsWriter" public="true" autowire="true" autoconfigure="true">
+      <tag name="endroid.qr_code.writer"/>
+    </service>
+    <service id="Endroid\QrCode\Writer\PngWriter" class="Endroid\QrCode\Writer\PngWriter" public="true" autowire="true" autoconfigure="true">
+      <tag name="endroid.qr_code.writer"/>
+    </service>
+    <service id="Endroid\QrCode\Writer\SvgWriter" class="Endroid\QrCode\Writer\SvgWriter" public="true" autowire="true" autoconfigure="true">
+      <tag name="endroid.qr_code.writer"/>
+    </service>
+    <service id="Endroid\QrCodeBundle\Controller\GenerateController" class="Endroid\QrCodeBundle\Controller\GenerateController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <argument type="service" id="Endroid\QrCode\Factory\QrCodeFactory"/>
+    </service>
+    <service id="Endroid\QrCode\WriterRegistry" class="Endroid\QrCode\WriterRegistry" public="false" autowire="true" autoconfigure="true">
+      <call method="addWriters">
+        <argument type="tagged" tag="endroid.qr_code.writer"/>
+      </call>
+      <call method="addWriter">
+        <argument type="service" id="Endroid\QrCode\Writer\BinaryWriter"/>
+      </call>
+      <call method="addWriter">
+        <argument type="service" id="Endroid\QrCode\Writer\DebugWriter"/>
+      </call>
+      <call method="addWriter">
+        <argument type="service" id="Endroid\QrCode\Writer\EpsWriter"/>
+      </call>
+      <call method="addWriter">
+        <argument type="service" id="Endroid\QrCode\Writer\PngWriter"/>
+      </call>
+      <call method="addWriter">
+        <argument type="service" id="Endroid\QrCode\Writer\SvgWriter"/>
+      </call>
+    </service>
+    <service id="Endroid\QrCode\Factory\QrCodeFactory" class="Endroid\QrCode\Factory\QrCodeFactory" public="false" autowire="true" autoconfigure="true">
+      <argument type="collection">
+        <argument key="writer">svg</argument>
+        <argument key="size">300</argument>
+        <argument key="margin">10</argument>
+        <argument key="foreground_color" type="collection">
+          <argument key="r">0</argument>
+          <argument key="g">0</argument>
+          <argument key="b">0</argument>
+          <argument key="a">0</argument>
+        </argument>
+        <argument key="background_color" type="collection">
+          <argument key="r">255</argument>
+          <argument key="g">255</argument>
+          <argument key="b">255</argument>
+          <argument key="a">0</argument>
+        </argument>
+        <argument key="error_correction_level">low</argument>
+        <argument key="encoding">UTF-8</argument>
+        <argument key="label">Scan the code</argument>
+        <argument key="label_font_size">20</argument>
+        <argument key="label_alignment">left</argument>
+        <argument key="label_margin" type="collection">
+          <argument key="b">20</argument>
+        </argument>
+        <argument key="logo_path">C:\xampp\htdocs\zinnig\src/../vendor/endroid/qr-code/assets/images/symfony.png</argument>
+        <argument key="logo_width">150</argument>
+        <argument key="logo_height">200</argument>
+        <argument key="validate_result">false</argument>
+        <argument key="writer_options" type="collection">
+          <argument key="exclude_xml_declaration">true</argument>
+        </argument>
+      </argument>
+      <argument type="service" id="Endroid\QrCode\WriterRegistry"/>
+    </service>
+    <service id="Endroid\QrCodeBundle\Twig\QrCodeExtension" class="Endroid\QrCodeBundle\Twig\QrCodeExtension" public="false" autowire="true" autoconfigure="true">
+      <tag name="twig.extension"/>
+      <argument type="service" id="Endroid\QrCode\Factory\QrCodeFactory"/>
+      <argument type="service" id="router.default"/>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5267,6 +5346,19 @@
     <service id=".abstract.instanceof.App\Repository\LocationRepository" class="App\Repository\LocationRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ReservationRepository" class="App\Repository\ReservationRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ReservationRepository" class="App\Repository\ReservationRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Endroid\QrCode\Writer\WriterInterface.0.Endroid\QrCode\Writer\BinaryWriter" class="Endroid\QrCode\Writer\BinaryWriter" public="true" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Endroid\QrCode\Writer\BinaryWriter" class="Endroid\QrCode\Writer\BinaryWriter" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Endroid\QrCode\Writer\WriterInterface.0.Endroid\QrCode\Writer\DebugWriter" class="Endroid\QrCode\Writer\DebugWriter" public="true" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Endroid\QrCode\Writer\DebugWriter" class="Endroid\QrCode\Writer\DebugWriter" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Endroid\QrCode\Writer\WriterInterface.0.Endroid\QrCode\Writer\EpsWriter" class="Endroid\QrCode\Writer\EpsWriter" public="true" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Endroid\QrCode\Writer\EpsWriter" class="Endroid\QrCode\Writer\EpsWriter" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Endroid\QrCode\Writer\WriterInterface.0.Endroid\QrCode\Writer\PngWriter" class="Endroid\QrCode\Writer\PngWriter" public="true" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Endroid\QrCode\Writer\PngWriter" class="Endroid\QrCode\Writer\PngWriter" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Endroid\QrCode\Writer\WriterInterface.0.Endroid\QrCode\Writer\SvgWriter" class="Endroid\QrCode\Writer\SvgWriter" public="true" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Endroid\QrCode\Writer\SvgWriter" class="Endroid\QrCode\Writer\SvgWriter" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Twig_ExtensionInterface.0.Endroid\QrCodeBundle\Twig\QrCodeExtension" class="Endroid\QrCodeBundle\Twig\QrCodeExtension" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Twig\Extension\ExtensionInterface.0.Endroid\QrCodeBundle\Twig\QrCodeExtension" class="Endroid\QrCodeBundle\Twig\QrCodeExtension" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Endroid\QrCodeBundle\Twig\QrCodeExtension" class="Endroid\QrCodeBundle\Twig\QrCodeExtension" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand" public="false">
       <tag name="console.command" command="make:auth"/>
       <argument type="service" id="maker.maker.make_authenticator"/>
@@ -6275,6 +6367,8 @@
     <service id="fos_user.user_manager" alias="fos_user.user_manager.default" public="true"/>
     <service id="fos_user.mailer" alias="fos_user.mailer.default"/>
     <service id="fos_user.session" alias="session" public="false"/>
+    <service id="Endroid\QrCode\WriterRegistryInterface" alias="Endroid\QrCode\WriterRegistry" public="false"/>
+    <service id="Endroid\QrCode\Factory\QrCodeFactoryInterface" alias="Endroid\QrCode\Factory\QrCodeFactory" public="false"/>
     <service id="argument_resolver.controller_locator" alias=".service_locator.JIeK19S"/>
     <service id="Symfony\Component\Templating\EngineInterface" alias="templating.engine.delegating" public="false"/>
     <service id="Symfony\Bundle\FrameworkBundle\Templating\EngineInterface" alias="templating.engine.delegating" public="false"/>

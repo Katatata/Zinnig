@@ -139,9 +139,9 @@ class __TwigTemplate_6534cbbf693bea176da880dcb9366715414baf47abb60171cf175e5eb32
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [])]), "html", null, true);
             echo "\" class=\"btn btn-warning\">edit</a>
                 </td>
-                <td><img style=\"width:50px\" src=\"";
+                <td><img style=\"width:70px\" src=\"";
             // line 34
-            echo twig_escape_filter($this->env, $this->extensions['Endroid\QrCodeBundle\Twig\QrCodeExtension']->qrCodeUrlFunction("http://www.test.com"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Endroid\QrCodeBundle\Twig\QrCodeExtension']->qrCodeUrlFunction(twig_get_attribute($this->env, $this->source, $context["user"], "id", [])), "html", null, true);
             echo "\" onclick=\"window.open(this.src)\" /></td>
             </tr>
         ";
@@ -227,7 +227,7 @@ class __TwigTemplate_6534cbbf693bea176da880dcb9366715414baf47abb60171cf175e5eb32
                     <a href=\"{{ path('user_show', {'id': user.id}) }}\" class=\"btn btn-success\">show</a>
                     <a href=\"{{ path('user_edit', {'id': user.id}) }}\" class=\"btn btn-warning\">edit</a>
                 </td>
-                <td><img style=\"width:50px\" src=\"{{ qr_code_url('http://www.test.com') }}\" onclick=\"window.open(this.src)\" /></td>
+                <td><img style=\"width:70px\" src=\"{{ qr_code_url(user.id) }}\" onclick=\"window.open(this.src)\" /></td>
             </tr>
         {% else %}
             <tr>

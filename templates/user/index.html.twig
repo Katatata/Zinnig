@@ -31,7 +31,7 @@
                     <a href="{{ path('user_show', {'id': user.id}) }}" class="btn btn-success">show</a>
                     <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-warning">edit</a>
                 </td>
-                <td><img style="width:50px" src="{{ qr_code_url('http://www.test.com') }}" onclick="window.open(this.src)" /></td>
+                <td><img style="width:70px" src="{{ qr_code_url(user.id) }}" onclick="window.open(this.src)" /></td>
             </tr>
         {% else %}
             <tr>

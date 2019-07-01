@@ -81,20 +81,22 @@ class __TwigTemplate_baf5db857b4e0896f19cc89bba1a01a5dcb38dff60f14410d650bf379ed
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Edit Event</h1>
+        echo "    <h1 class=\"d-flex justify-content-center site_title\">Edit Event</h1>
 
     ";
         // line 8
         echo twig_include($this->env, $context, "event/_form.html.twig", ["button_label" => "Update"]);
         echo "
-
-    <a href=\"";
-        // line 10
+    
+    <div class=\"d-flex justify-content-center\">
+        <a href=\"";
+        // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event_index");
-        echo "\">back to list</a>
+        echo "\" class=\"btn btn-primary\">back to list</a>
+    </div></br>
 
     ";
-        // line 12
+        // line 14
         echo twig_include($this->env, $context, "event/_delete_form.html.twig");
         echo "
 ";
@@ -118,7 +120,7 @@ class __TwigTemplate_baf5db857b4e0896f19cc89bba1a01a5dcb38dff60f14410d650bf379ed
 
     public function getDebugInfo()
     {
-        return array (  98 => 12,  93 => 10,  88 => 8,  84 => 6,  75 => 5,  57 => 3,  27 => 1,);
+        return array (  100 => 14,  94 => 11,  88 => 8,  84 => 6,  75 => 5,  57 => 3,  27 => 1,);
     }
 
     public function getSourceContext()
@@ -128,11 +130,13 @@ class __TwigTemplate_baf5db857b4e0896f19cc89bba1a01a5dcb38dff60f14410d650bf379ed
 {% block title %}Edit Event{% endblock %}
 
 {% block body %}
-    <h1>Edit Event</h1>
+    <h1 class=\"d-flex justify-content-center site_title\">Edit Event</h1>
 
     {{ include('event/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href=\"{{ path('event_index') }}\">back to list</a>
+    
+    <div class=\"d-flex justify-content-center\">
+        <a href=\"{{ path('event_index') }}\" class=\"btn btn-primary\">back to list</a>
+    </div></br>
 
     {{ include('event/_delete_form.html.twig') }}
 {% endblock %}

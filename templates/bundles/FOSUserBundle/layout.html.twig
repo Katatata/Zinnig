@@ -36,6 +36,30 @@
                   -webkit-animation: hue 60s infinite linear;
                   animation: hue 60s infinite linear;
                 }
+
+                body {
+                  background-image: url('https://i.pinimg.com/originals/fa/07/de/fa07def1196074b19ab56c65280371ec.gif');
+                  background-repeat: no-repeat;
+                  background-attachment:fixed;
+                  background-position:center bottom;
+                  background-size: 100% auto;
+                  background-color: #085f53;  
+                  color: white;
+                }
+      
+                table {
+                  background-image: none;
+                  background: white
+                }
+      
+                .butt {
+                  background: white;
+                }
+
+                input {
+                  max-width: 70%;
+                  
+                }
                 
                 @-webkit-keyframes hue {
                   from {
@@ -66,9 +90,9 @@
     <body>
         {% block nav %} 
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container">
-                  <a class="navbar-brand" href="/user"><i class="fas fa-book-reader" style=""></i> FOSUser</a>
+                  <a class="navbar-brand" href="/user"><i class="fas fa-book-reader" style=""></i> Zinnig Actief</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -84,9 +108,9 @@
                       <li class="nav-item" id="nav-event">
                         <a class="nav-link" href="/event">Event</a>
                       </li>
-                      <li class="nav-item" id="nav-res">
+                      {# <li class="nav-item" id="nav-res">
                         <a class="nav-link" href="/reservation">Reservation</a>
-                      </li>
+                      </li> #}
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         {% if is_granted('ROLE_USER') %} 

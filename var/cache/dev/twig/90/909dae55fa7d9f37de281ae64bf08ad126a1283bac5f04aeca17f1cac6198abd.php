@@ -59,29 +59,29 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
         // line 7
         echo "        ";
         $this->displayBlock('bootstrap_css', $context, $blocks);
-        // line 62
+        // line 81
         echo "    ";
         $this->displayBlock('bootstrap_js', $context, $blocks);
-        // line 67
+        // line 86
         echo "    </head>
     <body>
             ";
-        // line 69
+        // line 88
         $this->displayBlock('nav', $context, $blocks);
-        // line 143
+        // line 162
         echo "            </br>
             </br>
         ";
-        // line 145
+        // line 164
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
             echo " 
         ";
-            // line 146
+            // line 165
             $this->displayBlock('body', $context, $blocks);
-            // line 147
+            // line 166
             echo "        ";
         } else {
-            // line 148
+            // line 167
             echo "        <h1 class=\"d-flex justify-content-center site_title\">Please login to view tables</h1>
 
         <br>
@@ -96,10 +96,10 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
         </div>
         ";
         }
-        // line 161
+        // line 180
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 162
+        // line 181
         echo "    </body>
 </html>
 ";
@@ -189,6 +189,25 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
             animation: hue 60s infinite linear;
           }
 
+          body {
+            background-image: url('https://i.pinimg.com/originals/fa/07/de/fa07def1196074b19ab56c65280371ec.gif');
+            background-repeat: no-repeat;
+            background-attachment:fixed;
+            background-position:center bottom;
+            background-size: 100% auto;
+            background-color: #085f53;  
+            color: white;
+          }
+
+          table {
+            background-image: none;
+            background: white
+          }
+
+          .butt {
+            background: white;
+          }
+
           
           @-webkit-keyframes hue {
             from {
@@ -218,7 +237,7 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
 
     }
 
-    // line 62
+    // line 81
     public function block_bootstrap_js($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -227,7 +246,7 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "bootstrap_js"));
 
-        // line 63
+        // line 82
         echo "        <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>
         <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\" integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\" crossorigin=\"anonymous\"></script>
         <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script>
@@ -240,7 +259,7 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
 
     }
 
-    // line 69
+    // line 88
     public function block_nav($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -251,9 +270,9 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
 
         echo " 
             <header>
-              <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
+              <nav class=\"navbar navbar-expand-lg navbar-dark\">
                   <div class=\"container\">
-                    <a class=\"navbar-brand\" href=\"/user\"><i class=\"fas fa-book-reader\"></i> FOSUser</a>
+                    <a class=\"navbar-brand\" href=\"/user\"><i class=\"fas fa-book-reader\"></i> Zinnig Actief</a>
                     <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExample07\" aria-controls=\"navbarsExample07\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                       <span class=\"navbar-toggler-icon\"></span>
                     </button>
@@ -269,13 +288,12 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
                         <li class=\"nav-item\" id=\"nav-event\">
                           <a class=\"nav-link\" href=\"/event\">Event</a>
                         </li>
-                        <li class=\"nav-item\" id=\"nav-res\">
-                          <a class=\"nav-link\" href=\"/reservation\">Reservation</a>
-                        </li>
-                      </ul>
+                        ";
+        // line 111
+        echo "                      </ul>
                       <ul class=\"nav navbar-nav navbar-right\">
                           ";
-        // line 94
+        // line 113
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
             echo " 
                             <li class=\"nav-item active\">
@@ -285,7 +303,7 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
                             </li>
                           ";
         } else {
-            // line 101
+            // line 120
             echo "                            <li class=\"nav-item active\">
                               <a class=\"nav-link\" href=\"/login\">
                                 <button class=\"btn btn-primary navbar-btn\">Login</button>
@@ -298,7 +316,7 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
                             </li>
                           ";
         }
-        // line 112
+        // line 131
         echo "                  
                         </ul>
                     </div>
@@ -338,7 +356,7 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
 
     }
 
-    // line 146
+    // line 165
     public function block_body($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -355,7 +373,7 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
 
     }
 
-    // line 161
+    // line 180
     public function block_javascripts($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -384,7 +402,7 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
 
     public function getDebugInfo()
     {
-        return array (  359 => 161,  342 => 146,  302 => 112,  289 => 101,  279 => 94,  244 => 69,  231 => 63,  222 => 62,  159 => 8,  150 => 7,  133 => 6,  115 => 5,  103 => 162,  100 => 161,  85 => 148,  82 => 147,  80 => 146,  76 => 145,  72 => 143,  70 => 69,  66 => 67,  63 => 62,  60 => 7,  58 => 6,  54 => 5,  48 => 1,);
+        return array (  377 => 180,  360 => 165,  320 => 131,  307 => 120,  297 => 113,  293 => 111,  263 => 88,  250 => 82,  241 => 81,  159 => 8,  150 => 7,  133 => 6,  115 => 5,  103 => 181,  100 => 180,  85 => 167,  82 => 166,  80 => 165,  76 => 164,  72 => 162,  70 => 88,  66 => 86,  63 => 81,  60 => 7,  58 => 6,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -429,6 +447,25 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
             animation: hue 60s infinite linear;
           }
 
+          body {
+            background-image: url('https://i.pinimg.com/originals/fa/07/de/fa07def1196074b19ab56c65280371ec.gif');
+            background-repeat: no-repeat;
+            background-attachment:fixed;
+            background-position:center bottom;
+            background-size: 100% auto;
+            background-color: #085f53;  
+            color: white;
+          }
+
+          table {
+            background-image: none;
+            background: white
+          }
+
+          .butt {
+            background: white;
+          }
+
           
           @-webkit-keyframes hue {
             from {
@@ -459,9 +496,9 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
     <body>
             {% block nav %} 
             <header>
-              <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
+              <nav class=\"navbar navbar-expand-lg navbar-dark\">
                   <div class=\"container\">
-                    <a class=\"navbar-brand\" href=\"/user\"><i class=\"fas fa-book-reader\"></i> FOSUser</a>
+                    <a class=\"navbar-brand\" href=\"/user\"><i class=\"fas fa-book-reader\"></i> Zinnig Actief</a>
                     <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExample07\" aria-controls=\"navbarsExample07\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                       <span class=\"navbar-toggler-icon\"></span>
                     </button>
@@ -477,9 +514,9 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
                         <li class=\"nav-item\" id=\"nav-event\">
                           <a class=\"nav-link\" href=\"/event\">Event</a>
                         </li>
-                        <li class=\"nav-item\" id=\"nav-res\">
+                        {# <li class=\"nav-item\" id=\"nav-res\">
                           <a class=\"nav-link\" href=\"/reservation\">Reservation</a>
-                        </li>
+                        </li> #}
                       </ul>
                       <ul class=\"nav navbar-nav navbar-right\">
                           {% if is_granted('ROLE_USER') %} 

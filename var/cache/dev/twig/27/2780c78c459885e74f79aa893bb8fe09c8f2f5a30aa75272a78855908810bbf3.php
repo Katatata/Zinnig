@@ -120,7 +120,7 @@ class __TwigTemplate_fffbb75b9677107670ae89e3c87d0fab8227af2dbfd9aae138611106275
 
     <br><br><br>
     <div class=\"container\">
-        <a href=\"/register\" style=\"text-decoration:none;\">Register &#8594;</a>
+        <a href=\"/register\" class=\"btn btn-success\" style=\"text-decoration:none;\">Register &#8594;</a>
     </div>
 </div>
 ";
@@ -197,7 +197,7 @@ class __TwigTemplate_fffbb75b9677107670ae89e3c87d0fab8227af2dbfd9aae138611106275
 
     <br><br><br>
     <div class=\"container\">
-        <a href=\"/register\" style=\"text-decoration:none;\">Register &#8594;</a>
+        <a href=\"/register\" class=\"btn btn-success\" style=\"text-decoration:none;\">Register &#8594;</a>
     </div>
 </div>
 ", "@FOSUser/Security/login_content.html.twig", "C:\\xampp\\htdocs\\zinnig\\templates\\bundles\\FOSUserBundle\\Security\\login_content.html.twig");

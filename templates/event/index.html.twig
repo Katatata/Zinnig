@@ -3,43 +3,48 @@
 {% block title %}Event index{% endblock %}
 
 {% block body %}
-    <h1>Event index</h1>
+    <h1 class="d-flex justify-content-center site_title">Event index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Min</th>
-                <th>Max</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for event in events %}
-            <tr>
-                <td>{{ event.id }}</td>
-                <td>{{ event.start ? event.start|date('Y-m-d') : '' }}</td>
-                <td>{{ event.end ? event.end|date('Y-m-d') : '' }}</td>
-                <td>{{ event.min }}</td>
-                <td>{{ event.max }}</td>
-                <td>{{ event.description }}</td>
-                <td>{{ event.image }}</td>
-                <td>
-                    <a href="{{ path('event_show', {'id': event.id}) }}">show</a>
-                    <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table container table-striped table-bordered table-hover animated fadeIn" style="max-width:90%">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Start</th>
+                    <th scope="col">End</th>
+                    <th scope="col">Min</th>
+                    <th scope="col">Max</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Image</th>
+                    <th scope="col" style="min-width:150px;">actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for event in events %}
+                <tr>
+                    <td>{{ event.id }}</td>
+                    <td>{{ event.start ? event.start|date('Y-m-d') : '' }}</td>
+                    <td>{{ event.end ? event.end|date('Y-m-d') : '' }}</td>
+                    <td>{{ event.min }}</td>
+                    <td>{{ event.max }}</td>
+                    <td>{{ event.description }}</td>
+                    <td>{{ event.image }}</td>
+                    <td>
+                        <a href="{{ path('event_show', {'id': event.id}) }}" class="btn btn-success">show</a>
+                        <a href="{{ path('event_edit', {'id': event.id}) }}" class="btn btn-warning">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href="{{ path('event_new') }}">Create new</a>
+
+    <a href="{{ path('event_new') }}" class="d-flex justify-content-center">
+        <strong class="btn btn-primary animated pulse slow">Create new</strong>
+    </a>
 {% endblock %}

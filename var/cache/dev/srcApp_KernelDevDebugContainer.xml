@@ -5302,9 +5302,6 @@
         <argument key="label_margin" type="collection">
           <argument key="b">20</argument>
         </argument>
-        <argument key="logo_path">C:\xampp\htdocs\zinnig\src/../vendor/endroid/qr-code/assets/images/symfony.png</argument>
-        <argument key="logo_width">150</argument>
-        <argument key="logo_height">200</argument>
         <argument key="validate_result">false</argument>
         <argument key="writer_options" type="collection">
           <argument key="exclude_xml_declaration">true</argument>

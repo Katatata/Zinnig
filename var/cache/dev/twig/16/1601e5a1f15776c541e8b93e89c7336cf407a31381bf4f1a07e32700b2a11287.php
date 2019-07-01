@@ -81,9 +81,9 @@ class __TwigTemplate_360f619edcc434987ffb703ef0a41f3789fd14da1ddbef3ea032c5b7fe4
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Event</h1>
+        echo "    <h1 class=\"d-flex justify-content-center site_title\">Event</h1>
 
-    <table class=\"table\">
+    <table class=\"table container table-striped table-bordered table-hover animated fadeIn\" style=\"max-width:90%\">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -137,20 +137,23 @@ class __TwigTemplate_360f619edcc434987ffb703ef0a41f3789fd14da1ddbef3ea032c5b7fe4
         </tbody>
     </table>
 
-    <a href=\"";
-        // line 41
+    <div class=\"d-flex justify-content-center\">
+        <a href=\"";
+        // line 42
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event_index");
-        echo "\">back to list</a>
-
-    <a href=\"";
-        // line 43
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 43, $this->source); })()), "id", [])]), "html", null, true);
-        echo "\">edit</a>
-
-    ";
-        // line 45
+        echo "\" class=\"btn btn-primary\">back to list</a>
+        <div class=\"col-1\"></div>
+        <a href=\"";
+        // line 44
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 44, $this->source); })()), "id", [])]), "html", null, true);
+        echo "\" class=\"btn btn-warning\">edit</a>
+        <div class=\"col-1\"></div>
+        ";
+        // line 46
         echo twig_include($this->env, $context, "event/_delete_form.html.twig");
         echo "
+    </div>
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -172,7 +175,7 @@ class __TwigTemplate_360f619edcc434987ffb703ef0a41f3789fd14da1ddbef3ea032c5b7fe4
 
     public function getDebugInfo()
     {
-        return array (  152 => 45,  147 => 43,  142 => 41,  134 => 36,  127 => 32,  120 => 28,  113 => 24,  106 => 20,  99 => 16,  92 => 12,  84 => 6,  75 => 5,  57 => 3,  27 => 1,);
+        return array (  153 => 46,  148 => 44,  143 => 42,  134 => 36,  127 => 32,  120 => 28,  113 => 24,  106 => 20,  99 => 16,  92 => 12,  84 => 6,  75 => 5,  57 => 3,  27 => 1,);
     }
 
     public function getSourceContext()
@@ -182,9 +185,9 @@ class __TwigTemplate_360f619edcc434987ffb703ef0a41f3789fd14da1ddbef3ea032c5b7fe4
 {% block title %}Event{% endblock %}
 
 {% block body %}
-    <h1>Event</h1>
+    <h1 class=\"d-flex justify-content-center site_title\">Event</h1>
 
-    <table class=\"table\">
+    <table class=\"table container table-striped table-bordered table-hover animated fadeIn\" style=\"max-width:90%\">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -217,11 +220,14 @@ class __TwigTemplate_360f619edcc434987ffb703ef0a41f3789fd14da1ddbef3ea032c5b7fe4
         </tbody>
     </table>
 
-    <a href=\"{{ path('event_index') }}\">back to list</a>
+    <div class=\"d-flex justify-content-center\">
+        <a href=\"{{ path('event_index') }}\" class=\"btn btn-primary\">back to list</a>
+        <div class=\"col-1\"></div>
+        <a href=\"{{ path('event_edit', {'id': event.id}) }}\" class=\"btn btn-warning\">edit</a>
+        <div class=\"col-1\"></div>
+        {{ include('event/_delete_form.html.twig') }}
+    </div>
 
-    <a href=\"{{ path('event_edit', {'id': event.id}) }}\">edit</a>
-
-    {{ include('event/_delete_form.html.twig') }}
 {% endblock %}
 ", "event/show.html.twig", "C:\\xampp\\htdocs\\zinnig\\templates\\event\\show.html.twig");
     }

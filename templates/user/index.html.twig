@@ -5,41 +5,43 @@
 {% block body %}
     <h1 class="d-flex justify-content-center site_title">User index</h1>
 
-    <table class="table container table-striped table-bordered table-hover animated fadeIn" style="max-width:90%">
-        <thead class="thead-light">
-            <tr>
-                <th scope="col">Username</th>
-                <th scope="col">Email</th>
-                <th scope="col">Enabled</th>
-                <th scope="col">LastLogin</th>
-                <th scope="col">Roles</th>
-                <th scope="col">Id</th>
-                <th scope="col" style="min-width:150px;">actions</th>
-                <th scope="col" style="min-width:150px;">Qr</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.username }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.enabled ? 'Yes' : 'No' }}</td>
-                <td>{{ user.lastLogin ? user.lastLogin|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
-                <td>{{ user.id }}</td>
-                <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}" class="btn btn-success">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-warning">edit</a>
-                </td>
-                <td><img style="width:70px" src="{{ qr_code_url(user.id) }}" onclick="window.open(this.src)" /></td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="13">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table container table-striped table-bordered table-hover animated fadeIn" style="max-width:90%">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Enabled</th>
+                    <th scope="col">LastLogin</th>
+                    <th scope="col">Roles</th>
+                    <th scope="col">Id</th>
+                    <th scope="col" style="min-width:150px;">actions</th>
+                    <th scope="col" style="min-width:150px;">Qr</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.enabled ? 'Yes' : 'No' }}</td>
+                    <td>{{ user.lastLogin ? user.lastLogin|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
+                    <td>{{ user.id }}</td>
+                    <td>
+                        <a href="{{ path('user_show', {'id': user.id}) }}" class="btn btn-success">show</a>
+                        <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-warning">edit</a>
+                    </td>
+                    <td><img style="width:70px" src="{{ qr_code_url(user) }}" onclick="window.open(this.src)" /></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="13">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
 
     <a href="{{ path('user_new') }}" class="d-flex justify-content-center">

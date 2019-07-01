@@ -81,90 +81,95 @@ class __TwigTemplate_602f29911bfb77323ef10ecdd22ebd5cdccf769569fcae9daed653ef44e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Event index</h1>
+        echo "    <h1 class=\"d-flex justify-content-center site_title\">Event index</h1>
 
-    <table class=\"table\">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Min</th>
-                <th>Max</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        ";
-        // line 22
+    <div class=\"table-responsive\">
+        <table class=\"table container table-striped table-bordered table-hover animated fadeIn\" style=\"max-width:90%\">
+            <thead>
+                <tr>
+                    <th scope=\"col\">Id</th>
+                    <th scope=\"col\">Start</th>
+                    <th scope=\"col\">End</th>
+                    <th scope=\"col\">Min</th>
+                    <th scope=\"col\">Max</th>
+                    <th scope=\"col\">Description</th>
+                    <th scope=\"col\">Image</th>
+                    <th scope=\"col\" style=\"min-width:150px;\">actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            ";
+        // line 23
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 22, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 23, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["event"]) {
-            // line 23
-            echo "            <tr>
-                <td>";
             // line 24
+            echo "                <tr>
+                    <td>";
+            // line 25
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "id", []), "html", null, true);
             echo "</td>
-                <td>";
-            // line 25
+                    <td>";
+            // line 26
             echo twig_escape_filter($this->env, ((twig_get_attribute($this->env, $this->source, $context["event"], "start", [])) ? (twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "start", []), "Y-m-d")) : ("")), "html", null, true);
             echo "</td>
-                <td>";
-            // line 26
+                    <td>";
+            // line 27
             echo twig_escape_filter($this->env, ((twig_get_attribute($this->env, $this->source, $context["event"], "end", [])) ? (twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "end", []), "Y-m-d")) : ("")), "html", null, true);
             echo "</td>
-                <td>";
-            // line 27
+                    <td>";
+            // line 28
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "min", []), "html", null, true);
             echo "</td>
-                <td>";
-            // line 28
+                    <td>";
+            // line 29
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "max", []), "html", null, true);
             echo "</td>
-                <td>";
-            // line 29
+                    <td>";
+            // line 30
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "description", []), "html", null, true);
             echo "</td>
-                <td>";
-            // line 30
+                    <td>";
+            // line 31
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "image", []), "html", null, true);
             echo "</td>
-                <td>
-                    <a href=\"";
-            // line 32
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event_show", ["id" => twig_get_attribute($this->env, $this->source, $context["event"], "id", [])]), "html", null, true);
-            echo "\">show</a>
-                    <a href=\"";
+                    <td>
+                        <a href=\"";
             // line 33
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event_show", ["id" => twig_get_attribute($this->env, $this->source, $context["event"], "id", [])]), "html", null, true);
+            echo "\" class=\"btn btn-success\">show</a>
+                        <a href=\"";
+            // line 34
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["event"], "id", [])]), "html", null, true);
-            echo "\">edit</a>
-                </td>
-            </tr>
-        ";
+            echo "\" class=\"btn btn-warning\">edit</a>
+                    </td>
+                </tr>
+            ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 37
-            echo "            <tr>
-                <td colspan=\"8\">no records found</td>
-            </tr>
-        ";
+            // line 38
+            echo "                <tr>
+                    <td colspan=\"8\">no records found</td>
+                </tr>
+            ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['event'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 41
-        echo "        </tbody>
-    </table>
+        // line 42
+        echo "            </tbody>
+        </table>
+    </div>
+
 
     <a href=\"";
-        // line 44
+        // line 47
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event_new");
-        echo "\">Create new</a>
+        echo "\" class=\"d-flex justify-content-center\">
+        <strong class=\"btn btn-primary animated pulse slow\">Create new</strong>
+    </a>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -186,7 +191,7 @@ class __TwigTemplate_602f29911bfb77323ef10ecdd22ebd5cdccf769569fcae9daed653ef44e
 
     public function getDebugInfo()
     {
-        return array (  166 => 44,  161 => 41,  152 => 37,  143 => 33,  139 => 32,  134 => 30,  130 => 29,  126 => 28,  122 => 27,  118 => 26,  114 => 25,  110 => 24,  107 => 23,  102 => 22,  84 => 6,  75 => 5,  57 => 3,  27 => 1,);
+        return array (  169 => 47,  162 => 42,  153 => 38,  144 => 34,  140 => 33,  135 => 31,  131 => 30,  127 => 29,  123 => 28,  119 => 27,  115 => 26,  111 => 25,  108 => 24,  103 => 23,  84 => 6,  75 => 5,  57 => 3,  27 => 1,);
     }
 
     public function getSourceContext()
@@ -196,45 +201,50 @@ class __TwigTemplate_602f29911bfb77323ef10ecdd22ebd5cdccf769569fcae9daed653ef44e
 {% block title %}Event index{% endblock %}
 
 {% block body %}
-    <h1>Event index</h1>
+    <h1 class=\"d-flex justify-content-center site_title\">Event index</h1>
 
-    <table class=\"table\">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Min</th>
-                <th>Max</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for event in events %}
-            <tr>
-                <td>{{ event.id }}</td>
-                <td>{{ event.start ? event.start|date('Y-m-d') : '' }}</td>
-                <td>{{ event.end ? event.end|date('Y-m-d') : '' }}</td>
-                <td>{{ event.min }}</td>
-                <td>{{ event.max }}</td>
-                <td>{{ event.description }}</td>
-                <td>{{ event.image }}</td>
-                <td>
-                    <a href=\"{{ path('event_show', {'id': event.id}) }}\">show</a>
-                    <a href=\"{{ path('event_edit', {'id': event.id}) }}\">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan=\"8\">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class=\"table-responsive\">
+        <table class=\"table container table-striped table-bordered table-hover animated fadeIn\" style=\"max-width:90%\">
+            <thead>
+                <tr>
+                    <th scope=\"col\">Id</th>
+                    <th scope=\"col\">Start</th>
+                    <th scope=\"col\">End</th>
+                    <th scope=\"col\">Min</th>
+                    <th scope=\"col\">Max</th>
+                    <th scope=\"col\">Description</th>
+                    <th scope=\"col\">Image</th>
+                    <th scope=\"col\" style=\"min-width:150px;\">actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for event in events %}
+                <tr>
+                    <td>{{ event.id }}</td>
+                    <td>{{ event.start ? event.start|date('Y-m-d') : '' }}</td>
+                    <td>{{ event.end ? event.end|date('Y-m-d') : '' }}</td>
+                    <td>{{ event.min }}</td>
+                    <td>{{ event.max }}</td>
+                    <td>{{ event.description }}</td>
+                    <td>{{ event.image }}</td>
+                    <td>
+                        <a href=\"{{ path('event_show', {'id': event.id}) }}\" class=\"btn btn-success\">show</a>
+                        <a href=\"{{ path('event_edit', {'id': event.id}) }}\" class=\"btn btn-warning\">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan=\"8\">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href=\"{{ path('event_new') }}\">Create new</a>
+
+    <a href=\"{{ path('event_new') }}\" class=\"d-flex justify-content-center\">
+        <strong class=\"btn btn-primary animated pulse slow\">Create new</strong>
+    </a>
 {% endblock %}
 ", "event/index.html.twig", "C:\\xampp\\htdocs\\zinnig\\templates\\event\\index.html.twig");
     }

@@ -114,7 +114,7 @@ class __TwigTemplate_3f849f4829f2be8208d508d5f89be1b8b2e85b9814bc0ee39c29991cc60
 
     <br><br><br>
     <div class=\"container\">
-        <a href=\"/login\" style=\"text-decoration:none;\">&#8592; Login</a>
+        <a href=\"/login\" class=\"btn btn-primary\" style=\"text-decoration:none;\">&#8592; Login</a>
     </div>
 
 </div>
@@ -185,7 +185,7 @@ class __TwigTemplate_3f849f4829f2be8208d508d5f89be1b8b2e85b9814bc0ee39c29991cc60
 
     <br><br><br>
     <div class=\"container\">
-        <a href=\"/login\" style=\"text-decoration:none;\">&#8592; Login</a>
+        <a href=\"/login\" class=\"btn btn-primary\" style=\"text-decoration:none;\">&#8592; Login</a>
     </div>
 
 </div>

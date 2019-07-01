@@ -81,17 +81,21 @@ class __TwigTemplate_02439c60502529c0dd33312ee7b9235e770cc69ce1bef584a1c52977cc2
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Create new Event</h1>
+        echo "    <h1 class=\"d-flex justify-content-center site_title\">Create new Event</h1>
+    <br><br>
 
     ";
-        // line 8
+        // line 9
         echo twig_include($this->env, $context, "event/_form.html.twig");
         echo "
-
+    
     <a href=\"";
-        // line 10
+        // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event_index");
-        echo "\">back to list</a>
+        echo "\" class=\"d-flex justify-content-center\">
+        <strong class=\"btn btn-primary\"> back to list</strong>
+    </a>
+    
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -113,7 +117,7 @@ class __TwigTemplate_02439c60502529c0dd33312ee7b9235e770cc69ce1bef584a1c52977cc2
 
     public function getDebugInfo()
     {
-        return array (  93 => 10,  88 => 8,  84 => 6,  75 => 5,  57 => 3,  27 => 1,);
+        return array (  94 => 11,  89 => 9,  84 => 6,  75 => 5,  57 => 3,  27 => 1,);
     }
 
     public function getSourceContext()
@@ -123,11 +127,15 @@ class __TwigTemplate_02439c60502529c0dd33312ee7b9235e770cc69ce1bef584a1c52977cc2
 {% block title %}New Event{% endblock %}
 
 {% block body %}
-    <h1>Create new Event</h1>
+    <h1 class=\"d-flex justify-content-center site_title\">Create new Event</h1>
+    <br><br>
 
     {{ include('event/_form.html.twig') }}
-
-    <a href=\"{{ path('event_index') }}\">back to list</a>
+    
+    <a href=\"{{ path('event_index') }}\" class=\"d-flex justify-content-center\">
+        <strong class=\"btn btn-primary\"> back to list</strong>
+    </a>
+    
 {% endblock %}
 ", "event/new.html.twig", "C:\\xampp\\htdocs\\zinnig\\templates\\event\\new.html.twig");
     }

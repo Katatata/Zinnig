@@ -40,13 +40,13 @@ class __TwigTemplate_e69f98d1e56e15dada12713f63a287131fb1b627735af86afa78bd72824
         // line 1
         echo "<form method=\"post\" action=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 1, $this->source); })()), "id", [])]), "html", null, true);
-        echo "\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+        echo "\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\" class=\"d-flex justify-content-center\">
     <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
     <input type=\"hidden\" name=\"_token\" value=\"";
         // line 3
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 3, $this->source); })()), "id", []))), "html", null, true);
         echo "\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn btn-danger\">Delete</button>
 </form>
 ";
         
@@ -74,10 +74,10 @@ class __TwigTemplate_e69f98d1e56e15dada12713f63a287131fb1b627735af86afa78bd72824
 
     public function getSourceContext()
     {
-        return new Source("<form method=\"post\" action=\"{{ path('event_delete', {'id': event.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+        return new Source("<form method=\"post\" action=\"{{ path('event_delete', {'id': event.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\" class=\"d-flex justify-content-center\">
     <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ event.id) }}\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn btn-danger\">Delete</button>
 </form>
 ", "event/_delete_form.html.twig", "C:\\xampp\\htdocs\\zinnig\\templates\\event\\_delete_form.html.twig");
     }

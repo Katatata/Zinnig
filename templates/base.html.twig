@@ -105,9 +105,9 @@
                         <li class="nav-item" id="nav-event">
                           <a class="nav-link" href="/event">Event</a>
                         </li>
-                        {# <li class="nav-item" id="nav-res">
-                          <a class="nav-link" href="/reservation">Reservation</a>
-                        </li> #}
+                        <li class="nav-item" id="nav-act">
+                          <a class="nav-link" href="/activity">Activity</a>
+                        </li>
                       </ul>
                       <ul class="nav navbar-nav navbar-right">
                           {% if is_granted('ROLE_USER') %} 
@@ -155,6 +155,10 @@
                 }
                 else if(permalink.match('/reservation/')) {
                   navItem = document.getElementById('nav-res');
+                  navItem.classList += ' active'
+                }
+                else if(permalink.match('/activity/')) {
+                  navItem = document.getElementById('nav-act');
                   navItem.classList += ' active'
                 }
             </script>

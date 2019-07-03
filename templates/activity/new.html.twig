@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Activity{% endblock %}
+
+{% block body %}
+    <h1 class="d-flex justify-content-center site_title">Create new Activity</h1>
+    <br><br>
+
+    {{ include('activity/_form.html.twig') }}
+
+    <a href="{{ path('activity_index') }}" class="d-flex justify-content-center">
+        <strong class="btn btn-primary"> back to list</strong>
+    </a>
+{% endblock %}

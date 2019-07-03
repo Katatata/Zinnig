@@ -58,30 +58,30 @@ class __TwigTemplate_316e593b8684d2f029f152d78d1af6b75231baf2f847739cbea818d355d
         ";
         // line 91
         $this->displayBlock('nav', $context, $blocks);
-        // line 165
+        // line 172
         echo "
 <br>
 <br>
 
         ";
-        // line 169
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 169, $this->source); })()), "request", []), "hasPreviousSession", [])) {
-            // line 170
+        // line 176
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 176, $this->source); })()), "request", []), "hasPreviousSession", [])) {
+            // line 177
             echo "            ";
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 170, $this->source); })()), "session", []), "flashbag", []), "all", [], "method"));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 177, $this->source); })()), "session", []), "flashbag", []), "all", [], "method"));
             foreach ($context['_seq'] as $context["type"] => $context["messages"]) {
-                // line 171
+                // line 178
                 echo "                ";
                 $context['_parent'] = $context;
                 $context['_seq'] = twig_ensure_traversable($context["messages"]);
                 foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-                    // line 172
+                    // line 179
                     echo "                    <div class=\"flash-";
                     echo twig_escape_filter($this->env, $context["type"], "html", null, true);
                     echo "\">
                         ";
-                    // line 173
+                    // line 180
                     echo twig_escape_filter($this->env, $context["message"], "html", null, true);
                     echo "
                     </div>
@@ -90,22 +90,22 @@ class __TwigTemplate_316e593b8684d2f029f152d78d1af6b75231baf2f847739cbea818d355d
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 176
+                // line 183
                 echo "            ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['type'], $context['messages'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 177
+            // line 184
             echo "        ";
         }
-        // line 178
+        // line 185
         echo "
         <div>
             ";
-        // line 180
+        // line 187
         $this->displayBlock('fos_user_content', $context, $blocks);
-        // line 182
+        // line 189
         echo "        </div>
     </body>
 </html>
@@ -265,12 +265,15 @@ class __TwigTemplate_316e593b8684d2f029f152d78d1af6b75231baf2f847739cbea818d355d
                       <li class=\"nav-item\" id=\"nav-event\">
                         <a class=\"nav-link\" href=\"/event\">Event</a>
                       </li>
+                      <li class=\"nav-item\" id=\"nav-act\">
+                        <a class=\"nav-link\" href=\"/activity\">Activity</a>
+                      </li>
                       ";
-        // line 114
+        // line 117
         echo "                    </ul>
                     <ul class=\"nav navbar-nav navbar-right\">
                         ";
-        // line 116
+        // line 119
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
             echo " 
                           <li class=\"nav-item active\">
@@ -280,7 +283,7 @@ class __TwigTemplate_316e593b8684d2f029f152d78d1af6b75231baf2f847739cbea818d355d
                           </li>
                         ";
         } else {
-            // line 123
+            // line 126
             echo "                          <li class=\"nav-item active\">
                             <a class=\"nav-link\" href=\"/login\">
                               <button class=\"btn btn-primary navbar-btn\">Login</button>
@@ -293,7 +296,7 @@ class __TwigTemplate_316e593b8684d2f029f152d78d1af6b75231baf2f847739cbea818d355d
                           </li>
                         ";
         }
-        // line 134
+        // line 137
         echo "                
                       </ul>
                   </div>
@@ -323,6 +326,10 @@ class __TwigTemplate_316e593b8684d2f029f152d78d1af6b75231baf2f847739cbea818d355d
                 navItem = document.getElementById('nav-res');
                 navItem.classList += ' active'
               }
+              else if(permalink.match('/activity/')) {
+                navItem = document.getElementById('nav-act');
+                navItem.classList += ' active'
+              }
           </script>
       ";
         
@@ -333,7 +340,7 @@ class __TwigTemplate_316e593b8684d2f029f152d78d1af6b75231baf2f847739cbea818d355d
 
     }
 
-    // line 180
+    // line 187
     public function block_fos_user_content($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -342,7 +349,7 @@ class __TwigTemplate_316e593b8684d2f029f152d78d1af6b75231baf2f847739cbea818d355d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "fos_user_content"));
 
-        // line 181
+        // line 188
         echo "            ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -364,7 +371,7 @@ class __TwigTemplate_316e593b8684d2f029f152d78d1af6b75231baf2f847739cbea818d355d
 
     public function getDebugInfo()
     {
-        return array (  346 => 181,  337 => 180,  297 => 134,  284 => 123,  274 => 116,  270 => 114,  240 => 91,  227 => 85,  218 => 84,  131 => 6,  122 => 5,  109 => 182,  107 => 180,  103 => 178,  100 => 177,  94 => 176,  85 => 173,  80 => 172,  75 => 171,  70 => 170,  68 => 169,  62 => 165,  60 => 91,  56 => 89,  53 => 84,  51 => 5,  45 => 1,);
+        return array (  353 => 188,  344 => 187,  300 => 137,  287 => 126,  277 => 119,  273 => 117,  240 => 91,  227 => 85,  218 => 84,  131 => 6,  122 => 5,  109 => 189,  107 => 187,  103 => 185,  100 => 184,  94 => 183,  85 => 180,  80 => 179,  75 => 178,  70 => 177,  68 => 176,  62 => 172,  60 => 91,  56 => 89,  53 => 84,  51 => 5,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -479,6 +486,9 @@ class __TwigTemplate_316e593b8684d2f029f152d78d1af6b75231baf2f847739cbea818d355d
                       <li class=\"nav-item\" id=\"nav-event\">
                         <a class=\"nav-link\" href=\"/event\">Event</a>
                       </li>
+                      <li class=\"nav-item\" id=\"nav-act\">
+                        <a class=\"nav-link\" href=\"/activity\">Activity</a>
+                      </li>
                       {# <li class=\"nav-item\" id=\"nav-res\">
                         <a class=\"nav-link\" href=\"/reservation\">Reservation</a>
                       </li> #}
@@ -529,6 +539,10 @@ class __TwigTemplate_316e593b8684d2f029f152d78d1af6b75231baf2f847739cbea818d355d
               }
               else if(permalink.match('/reservation/')) {
                 navItem = document.getElementById('nav-res');
+                navItem.classList += ' active'
+              }
+              else if(permalink.match('/activity/')) {
+                navItem = document.getElementById('nav-act');
                 navItem.classList += ' active'
               }
           </script>

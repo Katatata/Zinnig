@@ -453,6 +453,13 @@
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
       <argument>C:\xampp\htdocs\zinnig\var\log/dev.log</argument>
     </service>
+    <service id="App\Controller\ActivityController" class="App\Controller\ActivityController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.KTVqfp6.App\Controller\ActivityController"/>
+      </call>
+    </service>
     <service id="App\Controller\DefaultController" class="App\Controller\DefaultController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -488,6 +495,9 @@
         <argument type="service" id=".service_locator.KTVqfp6.App\Controller\UserController"/>
       </call>
     </service>
+    <service id="App\Form\ActivityType" class="App\Form\ActivityType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\EventType" class="App\Form\EventType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -499,6 +509,10 @@
     </service>
     <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+    </service>
+    <service id="App\Repository\ActivityRepository" class="App\Repository\ActivityRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\EventRepository" class="App\Repository\EventRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -774,6 +788,7 @@
         <argument>FOS\UserBundle\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\ActivityType</argument>
         <argument>App\Form\EventType</argument>
         <argument>App\Form\LocationType</argument>
         <argument>App\Form\ReservationType</argument>
@@ -1027,7 +1042,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.L9EB5tv"/>
+      <argument type="service" id=".service_locator.jQBcNi9"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3203,7 +3218,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.VQ9rLf6"/>
+      <argument type="service" id=".service_locator.97lU2P6"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5314,6 +5329,9 @@
       <argument type="service" id="Endroid\QrCode\Factory\QrCodeFactory"/>
       <argument type="service" id="router.default"/>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ActivityController" class="App\Controller\ActivityController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ActivityController" class="App\Controller\ActivityController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ActivityController" class="App\Controller\ActivityController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5329,6 +5347,8 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ActivityType" class="App\Form\ActivityType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ActivityType" class="App\Form\ActivityType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EventType" class="App\Form\EventType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\EventType" class="App\Form\EventType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\LocationType" class="App\Form\LocationType" autowire="true" abstract="true"/>
@@ -5337,6 +5357,8 @@
     <service id=".abstract.instanceof.App\Form\ReservationType" class="App\Form\ReservationType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActivityRepository" class="App\Repository\ActivityRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ActivityRepository" class="App\Repository\ActivityRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EventRepository" class="App\Repository\EventRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\EventRepository" class="App\Repository\EventRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LocationRepository" class="App\Repository\LocationRepository" autowire="true" abstract="true"/>
@@ -5518,6 +5540,18 @@
         <argument>make:migration</argument>
       </call>
     </service>
+    <service id=".service_locator.6kVGlNB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="activityRepository" type="service" id="App\Repository\ActivityRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.AnVRYeU" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="activity" type="service" id=".errored..service_locator.AnVRYeU.App\Entity\Activity"/>
+      </argument>
+    </service>
     <service id=".service_locator.4oecvtL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5560,9 +5594,13 @@
         <argument key="user" type="service" id=".errored..service_locator.wypGnUQ.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.JIeK19S" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.CZRvcke" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\ActivityController::delete" type="service" id=".service_locator.AnVRYeU"/>
+        <argument key="App\Controller\ActivityController::edit" type="service" id=".service_locator.AnVRYeU"/>
+        <argument key="App\Controller\ActivityController::index" type="service" id=".service_locator.6kVGlNB"/>
+        <argument key="App\Controller\ActivityController::show" type="service" id=".service_locator.AnVRYeU"/>
         <argument key="App\Controller\EventController::delete" type="service" id=".service_locator.Tg9qkSo"/>
         <argument key="App\Controller\EventController::edit" type="service" id=".service_locator.Tg9qkSo"/>
         <argument key="App\Controller\EventController::index" type="service" id=".service_locator.4oecvtL"/>
@@ -5578,6 +5616,10 @@
         <argument key="App\Controller\UserController::delete" type="service" id=".service_locator.wypGnUQ"/>
         <argument key="App\Controller\UserController::edit" type="service" id=".service_locator.wypGnUQ"/>
         <argument key="App\Controller\UserController::show" type="service" id=".service_locator.wypGnUQ"/>
+        <argument key="App\Controller\ActivityController:delete" type="service" id=".service_locator.AnVRYeU"/>
+        <argument key="App\Controller\ActivityController:edit" type="service" id=".service_locator.AnVRYeU"/>
+        <argument key="App\Controller\ActivityController:index" type="service" id=".service_locator.6kVGlNB"/>
+        <argument key="App\Controller\ActivityController:show" type="service" id=".service_locator.AnVRYeU"/>
         <argument key="App\Controller\EventController:delete" type="service" id=".service_locator.Tg9qkSo"/>
         <argument key="App\Controller\EventController:edit" type="service" id=".service_locator.Tg9qkSo"/>
         <argument key="App\Controller\EventController:index" type="service" id=".service_locator.4oecvtL"/>
@@ -5664,9 +5706,10 @@
       <argument type="service" id="debug.argument_resolver.variadic.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.L9EB5tv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.jQBcNi9" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\ActivityType" type="service" id="App\Form\ActivityType"/>
         <argument key="App\Form\EventType" type="service" id="App\Form\EventType"/>
         <argument key="App\Form\LocationType" type="service" id="App\Form\LocationType"/>
         <argument key="App\Form\ReservationType" type="service" id="App\Form\ReservationType"/>
@@ -5687,9 +5730,10 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.VQ9rLf6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.97lU2P6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\ActivityRepository" type="service" id="App\Repository\ActivityRepository"/>
         <argument key="App\Repository\EventRepository" type="service" id="App\Repository\EventRepository"/>
         <argument key="App\Repository\LocationRepository" type="service" id="App\Repository\LocationRepository"/>
         <argument key="App\Repository\ReservationRepository" type="service" id="App\Repository\ReservationRepository"/>
@@ -5880,6 +5924,12 @@
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.KTVqfp6.App\Controller\ActivityController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\ActivityController"/>
+      <argument>App\Controller\ActivityController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.KTVqfp6" method="withContext"/>
+    </service>
     <service id=".service_locator.KTVqfp6.App\Controller\DefaultController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\DefaultController"/>
       <argument>App\Controller\DefaultController</argument>
@@ -6002,10 +6052,11 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.JIeK19S"/>
+      <argument type="service" id=".service_locator.CZRvcke"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
+    <service id=".errored..service_locator.AnVRYeU.App\Entity\Activity" class="App\Entity\Activity"/>
     <service id=".errored..service_locator.Tg9qkSo.App\Entity\Event" class="App\Entity\Event"/>
     <service id=".errored..service_locator.Yg6KnU7.App\Entity\Location" class="App\Entity\Location"/>
     <service id=".errored..service_locator.eH1R0Zw.App\Entity\Reservation" class="App\Entity\Reservation"/>
@@ -6366,7 +6417,7 @@
     <service id="fos_user.session" alias="session" public="false"/>
     <service id="Endroid\QrCode\WriterRegistryInterface" alias="Endroid\QrCode\WriterRegistry" public="false"/>
     <service id="Endroid\QrCode\Factory\QrCodeFactoryInterface" alias="Endroid\QrCode\Factory\QrCodeFactory" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.JIeK19S"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.CZRvcke"/>
     <service id="Symfony\Component\Templating\EngineInterface" alias="templating.engine.delegating" public="false"/>
     <service id="Symfony\Bundle\FrameworkBundle\Templating\EngineInterface" alias="templating.engine.delegating" public="false"/>
     <service id="twig.loader" alias="twig.loader.filesystem"/>

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Activity index{% endblock %}
+
+{% block body %}
+    <h1 class="d-flex justify-content-center site_title">Activity index</h1>
+
+    <div class="table-responsive">
+        <table class="table container table-striped table-bordered table-hover animated fadeIn" style="max-width:90%">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">File_name</th>
+                    <th scope="col">Max_people</th>
+                    <th scope="col">Description</th>
+                    <th scope="col" style="min-width:150px;">actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for activity in activities %}
+                <tr>
+                    <td>{{ activity.id }}</td>
+                    <td>{{ activity.name }}</td>
+                    <td>{{ activity.fileName }}</td>
+                    <td>{{ activity.maxPeople }}</td>
+                    <td>{{ activity.description }}</td>
+                    <td>
+                        <a href="{{ path('activity_show', {'id': activity.id}) }}" class="btn btn-success">show</a>
+                        <a href="{{ path('activity_edit', {'id': activity.id}) }}" class="btn btn-warning">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    
+    <a href="{{ path('activity_new') }}" class="d-flex justify-content-center">
+        <strong class="btn btn-primary animated pulse slow">Create new</strong>
+    </a>
+{% endblock %}

@@ -68,20 +68,20 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
             ";
         // line 88
         $this->displayBlock('nav', $context, $blocks);
-        // line 162
+        // line 166
         echo "            </br>
             </br>
         ";
-        // line 164
+        // line 168
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
             echo " 
         ";
-            // line 165
+            // line 169
             $this->displayBlock('body', $context, $blocks);
-            // line 166
+            // line 170
             echo "        ";
         } else {
-            // line 167
+            // line 171
             echo "        <h1 class=\"d-flex justify-content-center site_title\">Please login to view tables</h1>
 
         <br>
@@ -96,10 +96,10 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
         </div>
         ";
         }
-        // line 180
+        // line 184
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 181
+        // line 185
         echo "    </body>
 </html>
 ";
@@ -288,9 +288,10 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
                         <li class=\"nav-item\" id=\"nav-event\">
                           <a class=\"nav-link\" href=\"/event\">Event</a>
                         </li>
-                        ";
-        // line 111
-        echo "                      </ul>
+                        <li class=\"nav-item\" id=\"nav-act\">
+                          <a class=\"nav-link\" href=\"/activity\">Activity</a>
+                        </li>
+                      </ul>
                       <ul class=\"nav navbar-nav navbar-right\">
                           ";
         // line 113
@@ -346,6 +347,10 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
                   navItem = document.getElementById('nav-res');
                   navItem.classList += ' active'
                 }
+                else if(permalink.match('/activity/')) {
+                  navItem = document.getElementById('nav-act');
+                  navItem.classList += ' active'
+                }
             </script>
           ";
         
@@ -356,7 +361,7 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
 
     }
 
-    // line 165
+    // line 169
     public function block_body($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -373,7 +378,7 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
 
     }
 
-    // line 180
+    // line 184
     public function block_javascripts($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -402,7 +407,7 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
 
     public function getDebugInfo()
     {
-        return array (  377 => 180,  360 => 165,  320 => 131,  307 => 120,  297 => 113,  293 => 111,  263 => 88,  250 => 82,  241 => 81,  159 => 8,  150 => 7,  133 => 6,  115 => 5,  103 => 181,  100 => 180,  85 => 167,  82 => 166,  80 => 165,  76 => 164,  72 => 162,  70 => 88,  66 => 86,  63 => 81,  60 => 7,  58 => 6,  54 => 5,  48 => 1,);
+        return array (  382 => 184,  365 => 169,  321 => 131,  308 => 120,  298 => 113,  263 => 88,  250 => 82,  241 => 81,  159 => 8,  150 => 7,  133 => 6,  115 => 5,  103 => 185,  100 => 184,  85 => 171,  82 => 170,  80 => 169,  76 => 168,  72 => 166,  70 => 88,  66 => 86,  63 => 81,  60 => 7,  58 => 6,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -514,9 +519,9 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
                         <li class=\"nav-item\" id=\"nav-event\">
                           <a class=\"nav-link\" href=\"/event\">Event</a>
                         </li>
-                        {# <li class=\"nav-item\" id=\"nav-res\">
-                          <a class=\"nav-link\" href=\"/reservation\">Reservation</a>
-                        </li> #}
+                        <li class=\"nav-item\" id=\"nav-act\">
+                          <a class=\"nav-link\" href=\"/activity\">Activity</a>
+                        </li>
                       </ul>
                       <ul class=\"nav navbar-nav navbar-right\">
                           {% if is_granted('ROLE_USER') %} 
@@ -564,6 +569,10 @@ class __TwigTemplate_9be71436fd0c4b822ae6149ef925140716334f9634ad877fe5d21a5ab04
                 }
                 else if(permalink.match('/reservation/')) {
                   navItem = document.getElementById('nav-res');
+                  navItem.classList += ' active'
+                }
+                else if(permalink.match('/activity/')) {
+                  navItem = document.getElementById('nav-act');
                   navItem.classList += ' active'
                 }
             </script>
